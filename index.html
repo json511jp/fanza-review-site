@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>年齢確認 | 同人・成人漫画ナビ</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400&display=swap');
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#0d0d0d; color:#e8e0d5; font-family:'Noto Sans JP',sans-serif; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+    .bg { position:fixed; inset:0; background:radial-gradient(ellipse at 40% 60%, #1a0a2e 0%, #0d0d0d 60%); }
+    .container { position:relative; z-index:1; text-align:center; padding:3rem 2rem; max-width:460px; width:100%; }
+    .logo { font-family:'Noto Serif JP',serif; font-size:1rem; letter-spacing:0.3em; color:#b8977e; margin-bottom:2.5rem; }
+    .badge { width:72px; height:72px; border:2px solid #b8977e; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 2rem; font-size:1.4rem; font-weight:700; color:#b8977e; }
+    h1 { font-family:'Noto Serif JP',serif; font-size:1.3rem; line-height:1.7; margin-bottom:1rem; }
+    p { font-size:0.82rem; color:#6a6258; line-height:2; margin-bottom:2.5rem; }
+    .btn-enter { background:linear-gradient(135deg,#b8977e,#8a6a52); color:#fff; border:none; padding:1rem 2rem; font-family:'Noto Sans JP',sans-serif; font-size:0.9rem; letter-spacing:0.1em; cursor:pointer; text-decoration:none; display:block; margin-bottom:1rem; transition:opacity 0.3s; }
+    .btn-enter:hover { opacity:0.85; }
+    .btn-exit { background:transparent; color:#3a3530; border:1px solid #2a2520; padding:0.8rem 2rem; font-family:'Noto Sans JP',sans-serif; font-size:0.82rem; cursor:pointer; text-decoration:none; display:block; transition:color 0.3s; }
+    .btn-exit:hover { color:#6a6258; }
+    .note { margin-top:2rem; font-size:0.72rem; color:#2a2520; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="container">
+    <div class="logo">DOUJIN MANGA NAVI</div>
+    <div class="badge">18+</div>
+    <h1>このサイトは成人向けコンテンツを含みます</h1>
+    <p>当サイトは成人向け同人・漫画作品の紹介サイトです。<br>18歳未満の方のアクセスはご遠慮ください。<br>閲覧が法律で禁止されている地域からのアクセスも<br>固くお断りします。</p>
+    <a href="home.html" class="btn-enter">18歳以上です。入場する</a>
+    <a href="https://www.google.com" class="btn-exit">18歳未満です。退場する</a>
+    <div class="note">入場することで18歳以上であることを確認したものとみなします</div>
+  </div>
+</body>
+</html>

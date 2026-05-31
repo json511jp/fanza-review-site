@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
+<!-- saved from url=(0052)file:///C:/Users/json5/Desktop/Downloads/home_6.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DOUJIN MANGA NAVI | 成人向け同人・漫画紹介</title>
   <style>
@@ -21,13 +21,50 @@
     .card-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:1.5rem; }
     .card { background:var(--bg2); border:1px solid var(--border); text-decoration:none; color:inherit; display:block; transition:border-color 0.2s; }
     .card:hover { border-color:var(--gold-dark); }
-    .card img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; border-bottom:1px solid var(--border); }
+
+    /* 画像エリア：背景黒でレターボックス表示（見切れなし） */
+    .card-img-wrap {
+      width:100%;
+      aspect-ratio:3/4;
+      background:#0a0a0a;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-bottom:1px solid var(--border);
+      overflow:hidden;
+    }
+    .card-img-wrap img {
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+
     .card-body { padding:1.2rem; }
     .card-tags { display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.6rem; }
     .tag { font-size:0.62rem; letter-spacing:0.08em; color:var(--gold); border:1px solid var(--gold-dark); padding:0.1rem 0.45rem; }
     .card-title { font-family:'Noto Serif JP',serif; font-size:0.95rem; line-height:1.6; margin-bottom:0.5rem; }
     .card-author { font-size:0.72rem; color:var(--muted); }
-    footer { border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:0.72rem; color:var(--muted); line-height:2; }
+
+    /* 非表示カード */
+    .card.hidden { display:none; }
+
+    /* もっと見るボタン */
+    .more-wrap { text-align:center; margin-top:2.5rem; }
+    .btn-more {
+      background:transparent;
+      color:var(--gold);
+      border:1px solid var(--gold-dark);
+      padding:0.8rem 2.5rem;
+      font-family:'Noto Sans JP',sans-serif;
+      font-size:0.85rem;
+      letter-spacing:0.15em;
+      cursor:pointer;
+      transition:background 0.2s, color 0.2s;
+    }
+    .btn-more:hover { background:var(--gold-dark); color:#fff; }
+
+    footer { border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:0.72rem; color:var(--muted); line-height:2; margin-top:3rem; }
   </style>
 </head>
 <body>
@@ -42,10 +79,11 @@
   </div>
   <main>
     <div class="section-label">PICKUP — 注目作品</div>
-    <div class="card-grid">
+    <div class="card-grid" id="cardGrid">
 
-      <a href="article1.html" class="card">
-        <img src="https://doujin-assets.dmm.co.jp/digital/game/d_734450/d_734450pr.jpg" alt="おいでませ！子作り温泉郷">
+      <!-- 最初から表示（1〜3件） -->
+      <a href="file:///C:/Users/json5/Desktop/Downloads/article1.html" class="card">
+        <div class="card-img-wrap"><img src="./home_files/d_734450pr.jpg" alt="おいでませ！子作り温泉郷"></div>
         <div class="card-body">
           <div class="card-tags"><span class="tag">ゲーム</span><span class="tag">妊娠・出産</span><span class="tag">温泉</span></div>
           <div class="card-title">おいでませ！子作り温泉郷</div>
@@ -53,8 +91,8 @@
         </div>
       </a>
 
-      <a href="article2.html" class="card">
-        <img src="https://doujin-assets.dmm.co.jp/digital/game/d_701978/d_701978pr.jpg" alt="終末のオルターエゴイズム">
+      <a href="file:///C:/Users/json5/Desktop/Downloads/article2.html" class="card">
+        <div class="card-img-wrap"><img src="./home_files/d_701978pr.jpg" alt="終末のオルターエゴイズム"></div>
         <div class="card-body">
           <div class="card-tags"><span class="tag">ゲーム</span><span class="tag">孕ませ</span><span class="tag">RPG</span></div>
           <div class="card-title">終末のオルターエゴイズム</div>
@@ -62,8 +100,8 @@
         </div>
       </a>
 
-      <a href="article3.html" class="card">
-        <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_774371/d_774371pr.jpg" alt="フェ〇ンの妊娠・出産奉仕">
+      <a href="file:///C:/Users/json5/Desktop/Downloads/article3.html" class="card">
+        <div class="card-img-wrap"><img src="./home_files/d_774371pr.jpg" alt="フェ〇ンの妊娠・出産奉仕"></div>
         <div class="card-body">
           <div class="card-tags"><span class="tag">コミック</span><span class="tag">妊娠・出産</span><span class="tag">アニメ</span></div>
           <div class="card-title">フェ〇ンの妊娠・出産奉仕</div>
@@ -71,8 +109,9 @@
         </div>
       </a>
 
-      <a href="article4.html" class="card">
-        <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_772227/d_772227pr.jpg" alt="触手に敗北した聖女、無惨。">
+      <!-- 最初は非表示（4件目以降） -->
+      <a href="file:///C:/Users/json5/Desktop/Downloads/article4.html" class="card hidden">
+        <div class="card-img-wrap"><img src="./home_files/d_772227pr.jpg" alt="触手に敗北した聖女、無惨。"></div>
         <div class="card-body">
           <div class="card-tags"><span class="tag">コミック</span><span class="tag">触手</span><span class="tag">巨乳</span></div>
           <div class="card-title">触手に敗北した聖女、無惨。</div>
@@ -80,8 +119,8 @@
         </div>
       </a>
 
-      <a href="article5.html" class="card">
-        <img src="https://doujin-assets.dmm.co.jp/digital/game/d_769997/d_769997pr.jpg" alt="羽衣天女のけもの道">
+      <a href="file:///C:/Users/json5/Desktop/Downloads/article5.html" class="card hidden">
+        <div class="card-img-wrap"><img src="./home_files/d_769997pr.jpg" alt="羽衣天女のけもの道"></div>
         <div class="card-body">
           <div class="card-tags"><span class="tag">ゲーム</span><span class="tag">妊娠</span><span class="tag">Live2D</span></div>
           <div class="card-title">羽衣天女のけもの道</div>
@@ -90,11 +129,30 @@
       </a>
 
     </div>
+
+    <!-- もっと見るボタン -->
+    <div class="more-wrap">
+      <button class="btn-more" id="btnMore" onclick="showMore()">もっと見る</button>
+    </div>
+
   </main>
+
   <footer>
     <p>当サイトは18歳以上の成人を対象とした成人向け同人・漫画の紹介サイトです。</p>
     <p>未成年者のアクセスは固くお断りします。</p>
     <p style="margin-top:1rem;">© 2026 Doujin Manga Navi. All rights reserved.</p>
   </footer>
-</body>
-</html>
+
+  <script>
+    function showMore() {
+      // 非表示カードをすべて表示
+      document.querySelectorAll('.card.hidden').forEach(function(card) {
+        card.classList.remove('hidden');
+      });
+      // ボタンを非表示
+      document.getElementById('btnMore').style.display = 'none';
+    }
+  </script>
+
+
+</body></html>

@@ -21,25 +21,7 @@
     .card-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:1.5rem; }
     .card { background:var(--bg2); border:1px solid var(--border); text-decoration:none; color:inherit; display:block; transition:border-color 0.2s; }
     .card:hover { border-color:var(--gold-dark); }
-
-    /* ==============================
-       ▼▼▼ サムネイル画像エリア ▼▼▼
-       アフィリエイトID取得後に
-       <img>タグに差し替えてください
-       ============================== */
-    .card-img {
-      width:100%; aspect-ratio:3/4;
-      background:#1a1a1a;
-      display:flex; flex-direction:column;
-      align-items:center; justify-content:center;
-      border-bottom:1px solid var(--border);
-      color:#2a2520; font-size:0.72rem; gap:0.5rem;
-    }
-    .card-img .img-icon { font-size:2rem; }
-    /* ==============================
-       ▲▲▲ サムネイル画像エリア ▲▲▲
-       ============================== */
-
+    .card img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; border-bottom:1px solid var(--border); }
     .card-body { padding:1.2rem; }
     .card-tags { display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.6rem; }
     .tag { font-size:0.62rem; letter-spacing:0.08em; color:var(--gold); border:1px solid var(--gold-dark); padding:0.1rem 0.45rem; }
@@ -63,47 +45,47 @@
     <div class="card-grid">
 
       <a href="article1.html" class="card">
-        <div class="card-img"><span class="img-icon">🖼</span><span>画像を差し込む場所</span></div>
+        <img src="https://doujin-assets.dmm.co.jp/digital/game/d_734450/d_734450pr.jpg" alt="おいでませ！子作り温泉郷">
         <div class="card-body">
           <div class="card-tags"><span class="tag">ゲーム</span><span class="tag">妊娠・出産</span><span class="tag">温泉</span></div>
           <div class="card-title">おいでませ！子作り温泉郷</div>
-          <div class="card-author">サークル：たいちょ工房</div>
+          <div class="card-author">サークル：たいちょん工房</div>
         </div>
       </a>
 
       <a href="article2.html" class="card">
-        <div class="card-img"><span class="img-icon">🖼</span><span>画像を差し込む場所</span></div>
+        <img src="https://doujin-assets.dmm.co.jp/digital/game/d_701978/d_701978pr.jpg" alt="終末のオルターエゴイズム">
         <div class="card-body">
-          <div class="card-tags"><span class="tag">ゲーム</span><span class="tag">孕ませ</span><span class="tag">終末</span></div>
-          <div class="card-title">終末のオルター・エゴイズム＋D</div>
-          <div class="card-author">サークル：ONE1</div>
+          <div class="card-tags"><span class="tag">ゲーム</span><span class="tag">孕ませ</span><span class="tag">RPG</span></div>
+          <div class="card-title">終末のオルターエゴイズム</div>
+          <div class="card-author">サークル：ONEONE1</div>
         </div>
       </a>
 
       <a href="article3.html" class="card">
-        <div class="card-img"><span class="img-icon">🖼</span><span>画像を差し込む場所</span></div>
+        <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_774371/d_774371pr.jpg" alt="フェ〇ンの妊娠・出産奉仕">
         <div class="card-body">
           <div class="card-tags"><span class="tag">コミック</span><span class="tag">妊娠・出産</span><span class="tag">アニメ</span></div>
-          <div class="card-title">フェ○ンの妊娠・出産奉仕</div>
+          <div class="card-title">フェ〇ンの妊娠・出産奉仕</div>
           <div class="card-author">サークル：美遊穂堂</div>
         </div>
       </a>
 
       <a href="article4.html" class="card">
-        <div class="card-img"><span class="img-icon">🖼</span><span>画像を差し込む場所</span></div>
+        <img src="https://doujin-assets.dmm.co.jp/digital/comic/d_772227/d_772227pr.jpg" alt="触手に敗北した聖女、無惨。">
         <div class="card-body">
-          <div class="card-tags"><span class="tag">コミック</span><span class="tag">触手</span><span class="tag">母乳</span></div>
+          <div class="card-tags"><span class="tag">コミック</span><span class="tag">触手</span><span class="tag">巨乳</span></div>
           <div class="card-title">触手に敗北した聖女、無惨。</div>
           <div class="card-author">著者：宮原歩</div>
         </div>
       </a>
 
       <a href="article5.html" class="card">
-        <div class="card-img"><span class="img-icon">🖼</span><span>画像を差し込む場所</span></div>
+        <img src="https://doujin-assets.dmm.co.jp/digital/game/d_769997/d_769997pr.jpg" alt="羽衣天女のけもの道">
         <div class="card-body">
-          <div class="card-tags"><span class="tag">ゲーム</span><span class="tag">妊娠</span><span class="tag">天女</span></div>
+          <div class="card-tags"><span class="tag">ゲーム</span><span class="tag">妊娠</span><span class="tag">Live2D</span></div>
           <div class="card-title">羽衣天女のけもの道</div>
-          <div class="card-author">サークル：異始繁々</div>
+          <div class="card-author">サークル：異類累々</div>
         </div>
       </a>
 

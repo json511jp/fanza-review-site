@@ -22,7 +22,13 @@
     .meta dd { color:var(--text); }
     .main-img { width:100%; max-width:360px; display:block; margin:0 auto 2.5rem; border:1px solid var(--border); }
     .sample-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0.5rem; margin:1.5rem 0 2rem; }
-    .sample-grid img { width:100%; display:block; border:1px solid var(--border); }
+    .sample-grid img { width:100%; display:block; border:1px solid var(--border); cursor:pointer; transition:opacity 0.2s; }
+    .sample-grid img:hover { opacity:0.8; }
+    .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; align-items:center; justify-content:center; }
+    .lightbox.active { display:flex; }
+    .lightbox img { max-width:90vw; max-height:90vh; object-fit:contain; border:1px solid #333; }
+    .lightbox-close { position:absolute; top:1.2rem; right:1.5rem; color:#fff; font-size:2rem; cursor:pointer; opacity:0.7; }
+    .lightbox-close:hover { opacity:1; }
     .body { font-size:0.9rem; line-height:2.1; color:#c8c0b5; }
     .body h2 { font-family:'Noto Serif JP',serif; font-size:1.05rem; color:var(--text); margin:2rem 0 0.8rem; padding-left:0.9rem; border-left:2px solid var(--gold); }
     .body p { margin-bottom:1.2rem; white-space:pre-line; }
@@ -87,5 +93,12 @@
     </div>
   </article>
   <footer>© 2026 Doujin Manga Navi — 18歳以上限定サイト</footer>
+  <div class="lightbox" id="lightbox"><span class="lightbox-close" id="lightboxClose">&times;</span><img src="" id="lightboxImg" alt=""></div>
+  <script>
+    var lb=document.getElementById("lightbox"),lbImg=document.getElementById("lightboxImg");
+    document.querySelectorAll(".sample-grid img").forEach(function(img){img.addEventListener("click",function(){lbImg.src=this.src;lb.classList.add("active");});});
+    document.getElementById("lightboxClose").addEventListener("click",function(){lb.classList.remove("active");});
+    lb.addEventListener("click",function(e){if(e.target===lb)lb.classList.remove("active");});
+  </script>
 </body>
 </html>

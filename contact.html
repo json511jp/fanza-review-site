@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | DOUJIN MANGA NAVI</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;500&display=swap');
+    :root { --gold:#b8977e; --gold-dark:#8a6a52; --bg:#0d0d0d; --bg2:#141414; --text:#e8e0d5; --muted:#6a6258; --border:#1e1c1a; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--text); font-family:'Noto Sans JP',sans-serif; min-height:100vh; }
+    header { border-bottom:1px solid var(--border); padding:1.2rem 2rem; display:flex; align-items:center; justify-content:space-between; }
+    .site-title { font-family:'Noto Serif JP',serif; font-size:1rem; letter-spacing:0.2em; color:var(--gold); text-decoration:none; }
+    .back { font-size:0.75rem; color:var(--muted); text-decoration:none; }
+    .back:hover { color:var(--gold); }
+
+    .container { max-width:600px; margin:0 auto; padding:4rem 2rem; }
+
+    .page-label { font-size:0.68rem; letter-spacing:0.3em; color:var(--gold); margin-bottom:1rem; }
+    h1 { font-family:'Noto Serif JP',serif; font-size:1.8rem; line-height:1.5; margin-bottom:1rem; }
+    .desc { font-size:0.85rem; color:var(--muted); line-height:2; margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid var(--border); }
+
+    .form-group { margin-bottom:1.8rem; }
+    label { display:block; font-size:0.8rem; color:var(--muted); margin-bottom:0.5rem; letter-spacing:0.05em; }
+    input, textarea {
+      width:100%;
+      background:#1a1a1a;
+      border:1px solid var(--border);
+      color:var(--text);
+      font-family:'Noto Sans JP',sans-serif;
+      font-size:0.9rem;
+      padding:0.8rem 1rem;
+      outline:none;
+      transition:border-color 0.2s;
+    }
+    input:focus, textarea:focus { border-color:var(--gold-dark); }
+    textarea { height:160px; resize:vertical; }
+
+    .btn-submit {
+      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+      color:#fff;
+      border:none;
+      padding:1rem 2.5rem;
+      font-family:'Noto Sans JP',sans-serif;
+      font-size:0.9rem;
+      letter-spacing:0.1em;
+      cursor:pointer;
+      transition:opacity 0.3s;
+      width:100%;
+    }
+    .btn-submit:hover { opacity:0.85; }
+
+    .success-msg {
+      display:none;
+      background:#1a2a1a;
+      border:1px solid #2a4a2a;
+      color:#8abf8a;
+      padding:1.2rem;
+      margin-top:1.5rem;
+      font-size:0.85rem;
+      line-height:1.8;
+    }
+
+    footer { border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:0.72rem; color:var(--muted); margin-top:4rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="home.html" class="site-title">DOUJIN MANGA NAVI</a>
+    <a href="home.html" class="back">← トップへ戻る</a>
+  </header>
+
+  <div class="container">
+    <div class="page-label">CONTACT</div>
+    <h1>お問い合わせ</h1>
+    <p class="desc">
+      サイトに関するご意見・ご要望・その他お問い合わせはこちらからどうぞ。<br>
+      内容を確認の上、折り返しご連絡いたします。
+    </p>
+
+    <form action="https://formspree.io/f/mojboeqq" method="POST" id="contactForm">
+
+      <div class="form-group">
+        <label for="name">お名前</label>
+        <input type="text" id="name" name="name" placeholder="例：山田 太郎" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" name="email" placeholder="例：example@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">件名</label>
+        <input type="text" id="subject" name="subject" placeholder="例：作品紹介のご依頼">
+      </div>
+
+      <div class="form-group">
+        <label for="message">メッセージ</label>
+        <textarea id="message" name="message" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">送信する</button>
+
+      <div class="success-msg" id="successMsg">
+        お問い合わせありがとうございます。<br>
+        内容を確認の上、折り返しご連絡いたします。
+      </div>
+
+    </form>
+  </div>
+
+  <footer>© 2026 Doujin Manga Navi — 18歳以上限定サイト</footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          form.reset();
+          document.getElementById('successMsg').style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

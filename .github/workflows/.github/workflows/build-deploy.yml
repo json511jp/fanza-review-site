@@ -1,0 +1,31 @@
+name: ビルド＆デプロイ
+
+on:
+  push:
+    paths:
+      - 'products/**'
+      - 'build.js'
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.jsをセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: HTMLをビルド
+        run: node build.js
+
+      - name: Wranglerをインストール
+        run: npm install -g wrangler
+
+      - name: Cloudflareへデプロイ
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: wrangler deploy --config wrangler.jsonc
